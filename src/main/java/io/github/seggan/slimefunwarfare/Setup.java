@@ -306,54 +306,50 @@ public final class Setup {
             }).register(addon);
     }
 
-    static void setupSpace(SlimefunWarfare addon) {
-        new Meteor(Items.OSMIUM_METEOR).register(addon);
-        new Meteor(Items.SEGGANESSON_METEOR).register(addon);
+static void setupSpace(SlimefunWarfare addon) {
+    new Meteor(Items.OSMIUM_METEOR.item()).register(addon);
+    new Meteor(Items.SEGGANESSON_METEOR.item()).register(addon);
 
-        new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_DUST, RecipeType.ORE_CRUSHER, fillNulls(Items.OSMIUM_METEOR.item())).register(addon);
-        new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_INGOT, RecipeType.SMELTERY, fillNulls(Items.OSMIUM_DUST.item())).register(addon);
-        new SlimefunItem(Categories.RESOURCES, Items.SEGGANESSON, RecipeType.ORE_CRUSHER, fillNulls(Items.SEGGANESSON_METEOR.item())).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_DUST, RecipeType.ORE_CRUSHER, fillNulls(Items.OSMIUM_METEOR.item())).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_INGOT, RecipeType.SMELTERY, fillNulls(Items.OSMIUM_DUST.item())).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.SEGGANESSON, RecipeType.ORE_CRUSHER, fillNulls(Items.SEGGANESSON_METEOR.item())).register(addon);
 
-        new IonExchangeSeparator().energyPerTick(128).register(addon);
+    new IonExchangeSeparator().energyPerTick(128).register(addon);
 
-        new Monazite(Items.MONAZITE.item()).register();
-        new SlimefunItem(Categories.RESOURCES, Items.MONAZITE, RecipeType.GEO_MINER, new ItemStack[9]).register(addon);
+    new Monazite(Items.MONAZITE.item()).register();
+    new SlimefunItem(Categories.RESOURCES, Items.MONAZITE, RecipeType.GEO_MINER, new ItemStack[9]).register(addon);
 
-        new Lanthanum().register(addon);
-        new RareEarth(Items.NEODYMIUM_INGOT).register(addon);
-        new RareEarth(Items.GADOLINIUM_INGOT).register(addon);
-        new RareEarth(Items.TERBIUM_INGOT).register(addon);
-        new RareEarth(Items.DYSPROSIUM_INGOT).register(addon);
-        new RareEarth(Items.HOLMIUM_INGOT).register(addon);
-        new RareEarth(Items.ERBIUM_INGOT).register(addon);
-        new RareEarth(Items.YTTERBIUM_INGOT).register(addon);
+    new Lanthanum().register(addon);
+    new RareEarth(Items.NEODYMIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.GADOLINIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.TERBIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.DYSPROSIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.HOLMIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.ERBIUM_INGOT.item()).register(addon);
+    new RareEarth(Items.YTTERBIUM_INGOT.item()).register(addon);
 
-        new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D, RecipeType.SMELTERY, fillNulls(
-            CustomItemStack.create(Items.TERBIUM_INGOT.item(), 3), CustomItemStack.create(Items.GADOLINIUM_INGOT.item(), 2), new ItemStack(Material.IRON_INGOT),
-            SlimefunItems.COBALT_INGOT.item(), CustomItemStack.create(Items.DYSPROSIUM_INGOT.item(), 2)
-        )).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D, RecipeType.SMELTERY, fillNulls(
+        CustomItemStack.create(Items.TERBIUM_INGOT.item(), 3),
+        CustomItemStack.create(Items.GADOLINIUM_INGOT.item(), 2),
+        new ItemStack(Material.IRON_INGOT),
+        SlimefunItems.COBALT_INGOT.item(),
+        CustomItemStack.create(Items.DYSPROSIUM_INGOT.item(), 2)
+    )).register(addon);
 
-        new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
-            Items.TERFENOL_D.item(), Items.TERFENOL_D.item(), Items.TERFENOL_D.item(),
-            Items.TERFENOL_D.item(), Items.TERFENOL_D.item(), Items.TERFENOL_D.item(),
-            Items.TERFENOL_D.item(), Items.TERFENOL_D.item(), Items.TERFENOL_D.item()
-        }).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, fillGrid(Items.TERFENOL_D.item())).register(addon);
 
-        new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY, RecipeType.SMELTERY, fillNulls(
-            CustomItemStack.create(Items.NEODYMIUM_INGOT.item(), 4), Items.BORON.item(),
-            new ItemStack(Material.IRON_INGOT), Items.DYSPROSIUM_INGOT.item()
-        )).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY, RecipeType.SMELTERY, fillNulls(
+        CustomItemStack.create(Items.NEODYMIUM_INGOT.item(), 4),
+        Items.BORON.item(),
+        new ItemStack(Material.IRON_INGOT),
+        Items.DYSPROSIUM_INGOT.item()
+    )).register(addon);
 
-        new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
-            Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item(),
-            Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item(),
-            Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item(), Items.NDFEB_ALLOY.item()
-        }).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, fillGrid(Items.NDFEB_ALLOY.item())).register(addon);
 
-        new MeteorAttractor().register(addon);
-
-        new ElementalReactor().register(addon);
-    }
+    new MeteorAttractor().register(addon);
+    new ElementalReactor().register(addon);
+}
 
     static void setupSuits(SlimefunWarfare addon) {
         new SlimefunItem(Categories.RESOURCES, Items.UNPATENTABLIUM, RecipeTypes.ELEMENT_FORGE, new ItemStack[]{
