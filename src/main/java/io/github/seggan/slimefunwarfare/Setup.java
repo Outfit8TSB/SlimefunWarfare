@@ -369,51 +369,59 @@ public final class Setup {
         new ElementalReactor().register(addon);
     }
 
-    static void setupSuits(SlimefunWarfare addon) {
-        new SlimefunItem(Categories.RESOURCES, Items.UNPATENTABLIUM, RecipeTypes.ELEMENT_FORGE, new ItemStack[]{
-            Items.SEGGANESSON, Items.ARSENIC, Items.SEGGANESSON,
-            Items.OSMIUM_DUST, Items.OSMIUM_INGOT, Items.OSMIUM_DUST,
-            Items.SEGGANESSON, Items.ARSENIC, Items.SEGGANESSON
-        }).register(addon);
+static void setupSpace(SlimefunWarfare addon) {
+    new Meteor(Items.OSMIUM_METEOR).register(addon);
+    new Meteor(Items.SEGGANESSON_METEOR).register(addon);
 
-        new SlimefunItem(Categories.POWER_SUITS, Items.POWER_SUIT_GENERATOR, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
-            Items.UNPATENTABLIUM, Items.UNPATENTABLIUM, Items.UNPATENTABLIUM,
-            Items.SEGGANESSON, SlimefunItems.NETHER_STAR_REACTOR, Items.SEGGANESSON,
-            Items.UNPATENTABLIUM, Items.LASER_DIODE, Items.UNPATENTABLIUM
-        }).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_DUST, RecipeType.ORE_CRUSHER, fillNulls(Items.OSMIUM_METEOR)).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.OSMIUM_INGOT, RecipeType.SMELTERY, fillNulls(Items.OSMIUM_DUST)).register(addon);
+    new SlimefunItem(Categories.RESOURCES, Items.SEGGANESSON, RecipeType.ORE_CRUSHER, fillNulls(Items.SEGGANESSON_METEOR)).register(addon);
 
-        new SlimefunItem(Categories.POWER_SUITS, Items.MODULE_CASE, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
-            null, Items.OSMIUM_INGOT, null,
-            Items.FIBER_OPTIC_CABLE, Items.POWER_SUIT_GENERATOR, Items.FIBER_OPTIC_CABLE,
-            null, Items.OSMIUM_INGOT, null
-        }, new SlimefunItemStack(Items.MODULE_CASE, 2)).register(addon);
+    new IonExchangeSeparator().energyPerTick(128).register(addon);
 
-        new PowerSuit(Items.POWER_SUIT_HELMET, new ItemStack[]{
-            SlimefunItems.ADVANCED_CIRCUIT_BOARD, Items.POWER_SUIT_GENERATOR, SlimefunItems.ADVANCED_CIRCUIT_BOARD,
-            Items.OSMIUM_SUPERALLOY, SlimefunItems.SCUBA_HELMET, Items.OSMIUM_SUPERALLOY,
-            Items.FIBER_OPTIC_CABLE, Items.OSMIUM_SUPERALLOY, Items.FIBER_OPTIC_CABLE
-        }, ArmorPiece.HEAD).register(addon);
+    new Monazite(Items.MONAZITE).register();
+    new SlimefunItem(Categories.RESOURCES, Items.MONAZITE, RecipeType.GEO_MINER, new ItemStack[9]).register(addon);
 
-        new PowerSuit(Items.POWER_SUIT_CHESTPLATE, new ItemStack[]{
-            Items.OSMIUM_SUPERALLOY, Items.ULTRA_MAGNET, Items.OSMIUM_SUPERALLOY,
-            Items.POWER_SUIT_GENERATOR, SlimefunItems.HAZMAT_CHESTPLATE, Items.POWER_SUIT_GENERATOR,
-            Items.LASER_DIODE, Items.SEGGANESSON, Items.LASER_DIODE
-        }, ArmorPiece.CHEST).register(addon);
+    new Lanthanum().register(addon);
+    new RareEarth(Items.NEODYMIUM_INGOT).register(addon);
+    new RareEarth(Items.GADOLINIUM_INGOT).register(addon);
+    new RareEarth(Items.TERBIUM_INGOT).register(addon);
+    new RareEarth(Items.DYSPROSIUM_INGOT).register(addon);
+    new RareEarth(Items.HOLMIUM_INGOT).register(addon);
+    new RareEarth(Items.ERBIUM_INGOT).register(addon);
+    new RareEarth(Items.YTTERBIUM_INGOT).register(addon);
 
-        new PowerSuit(Items.POWER_SUIT_LEGGINGS, new ItemStack[]{
-            SlimefunItems.ELECTRIC_MOTOR, Items.POWER_SUIT_GENERATOR, SlimefunItems.ELECTRIC_MOTOR,
-            Items.OSMIUM_SUPERALLOY, SlimefunItems.HAZMAT_LEGGINGS, Items.OSMIUM_SUPERALLOY,
-            Items.FIBER_OPTIC_CABLE, null, Items.FIBER_OPTIC_CABLE
-        }, ArmorPiece.LEGS).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D, RecipeType.SMELTERY, fillNulls(
+        multiply(Items.TERBIUM_INGOT, 3),
+        multiply(Items.GADOLINIUM_INGOT, 2),
+        new ItemStack(Material.IRON_INGOT),
+        SlimefunItems.COBALT_INGOT,
+        multiply(Items.DYSPROSIUM_INGOT, 2)
+    )).register(addon);
 
-        new PowerSuit(Items.POWER_SUIT_BOOTS, new ItemStack[]{
-            null, null, null,
-            Items.OSMIUM_SUPERALLOY, SlimefunItems.HAZMAT_BOOTS, Items.OSMIUM_SUPERALLOY,
-            Items.OSMIUM_SUPERALLOY, Items.POWER_SUIT_GENERATOR, Items.OSMIUM_SUPERALLOY
-        }, ArmorPiece.FEET).register(addon);
+    new SlimefunItem(Categories.GENERAL, Items.TERFENOL_D_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+        Items.TERFENOL_D, Items.TERFENOL_D, Items.TERFENOL_D,
+        Items.TERFENOL_D, Items.TERFENOL_D, Items.TERFENOL_D,
+        Items.TERFENOL_D, Items.TERFENOL_D, Items.TERFENOL_D
+    }).register(addon);
 
-        new ModuleManipulator().register(addon);
-    }
+    new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY, RecipeType.SMELTERY, fillNulls(
+        multiply(Items.NEODYMIUM_INGOT, 4),
+        Items.BORON,
+        new ItemStack(Material.IRON_INGOT),
+        Items.DYSPROSIUM_INGOT
+    )).register(addon);
+
+    new SlimefunItem(Categories.GENERAL, Items.NDFEB_ALLOY_BLOCK, RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[]{
+        Items.NDFEB_ALLOY, Items.NDFEB_ALLOY, Items.NDFEB_ALLOY,
+        Items.NDFEB_ALLOY, Items.NDFEB_ALLOY, Items.NDFEB_ALLOY,
+        Items.NDFEB_ALLOY, Items.NDFEB_ALLOY, Items.NDFEB_ALLOY
+    }).register(addon);
+
+    new MeteorAttractor().register(addon);
+    new ElementalReactor().register(addon);
+}
+
 
     static void setupResearches() {
         addResearch("Weapons of Mass Destruction", 70, Items.NUCLEAR_BOMB, Items.BOOMINATOR_9000);
